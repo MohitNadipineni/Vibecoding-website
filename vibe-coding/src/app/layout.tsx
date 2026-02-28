@@ -8,38 +8,30 @@ const inter = Inter({ subsets: ["latin"], display: "swap", preload: true })
 
 export const metadata: Metadata = {
   title: "BHARAT-OS | Sovereign AI Platform",
-  description:
-    "BHARAT-OS Sovereign AI: privacy-preserving, policy-aligned intelligence for public sector and enterprise workloads.",
+  description: "BHARAT-OS Sovereign AI: privacy-preserving, policy-aligned intelligence.",
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // Added 'dark' class here to force dark mode by default
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                try {
-                  const mode = localStorage.getItem('bharat-os:sovereign-mode') || 'dark';
-                  document.documentElement.classList.toggle('dark', mode === 'dark');
-                  document.documentElement.setAttribute('data-mode', mode);
-                } catch (e) {}
+                document.documentElement.classList.add('dark');
+                document.documentElement.setAttribute('data-mode', 'dark');
               })();
             `,
           }}
         />
       </head>
-      {/* Added bg-slate-950 to ensure the background is dark even before mesh loads */}
-      <body className={`${inter.className} bg-slate-950 text-white antialiased`}>
-        <div className="mesh min-h-screen bg-background text-foreground transition-colors duration-500">
+      <body className={`${inter.className} bg-[#020617] text-white antialiased`}>
+        <div className="relative min-h-screen flex flex-col">
+          {/* Ensuring the mesh has a high z-index but stays behind content */}
+          <div className="mesh fixed inset-0 z-0" />
           <Navbar />
-          <main className="relative z-10">{children}</main>
+          <main className="relative z-10 flex-grow">{children}</main>
           <Footer />
         </div>
       </body>
