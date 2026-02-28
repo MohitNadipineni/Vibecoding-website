@@ -79,108 +79,109 @@ export function ContactForm() {
           </aside>
 
           <div className="glass rounded-2xl border border-slate-200/70 p-6 shadow-sm dark:border-white/15 sm:p-8">
-          {submitted && (
-            <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800 dark:border-emerald-400/25 dark:bg-emerald-500/10 dark:text-emerald-200">
-              Request received. We’ll follow up with sandbox access details.
-            </div>
-          )}
-          
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  suppressHydrationWarning
-                  className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
-                  placeholder="Ananya Singh"
-                />
+            {submitted && (
+              <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800 dark:border-emerald-400/25 dark:bg-emerald-500/10 dark:text-emerald-200">
+                Request received. We’ll follow up with sandbox access details.
               </div>
-              <div>
-                <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  suppressHydrationWarning
-                  className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
-                  placeholder="ananya@org.in"
-                />
+            )}
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    suppressHydrationWarning
+                    className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
+                    placeholder="Ananya Singh"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    suppressHydrationWarning
+                    className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
+                    placeholder="ananya@org.in"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  suppressHydrationWarning
-                  className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
-                  placeholder="Department / Enterprise"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    suppressHydrationWarning
+                    className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
+                    placeholder="Department / Enterprise"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
+                    Track *
+                  </label>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    suppressHydrationWarning
+                    className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
+                  >
+                    <option value="">Select a track</option>
+                    <option value="public-sector">Public Sector</option>
+                    <option value="enterprise">Enterprise</option>
+                    <option value="defence">Defence / Critical Infra</option>
+                    <option value="research">Research / Academia</option>
+                  </select>
+                </div>
               </div>
+
               <div>
                 <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
-                  Track *
+                  What are you building? *
                 </label>
-                <select
-                  name="subject"
-                  value={formData.subject}
+                <textarea
+                  name="message"
+                  value={formData.message}
                   onChange={handleChange}
                   required
+                  rows={5}
                   suppressHydrationWarning
-                  className="w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
-                >
-                  <option value="">Select a track</option>
-                  <option value="public-sector">Public Sector</option>
-                  <option value="enterprise">Enterprise</option>
-                  <option value="defence">Defence / Critical Infra</option>
-                  <option value="research">Research / Academia</option>
-                </select>
+                  className="w-full resize-none rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
+                  placeholder="Use-cases, data sensitivity level, deployment environment, and timelines…"
+                />
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
-                What are you building? *
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
+              <Button
+                type="submit"
+                size="lg"
                 suppressHydrationWarning
-                className="w-full resize-none rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-sovereign-primary outline-none transition focus:border-sovereign-accent/50 focus:ring-2 focus:ring-sovereign-accent/25 dark:border-white/15 dark:bg-white/5 dark:text-white"
-                placeholder="Use-cases, data sensitivity level, deployment environment, and timelines…"
-              />
-            </div>
-
-            <Button
-              type="submit"
-              size="lg"
-              suppressHydrationWarning
-              className="w-full rounded-xl bg-sovereign-primary text-white shadow-sm transition hover:bg-sovereign-accent font-semibold flex items-center justify-center gap-2"
-            >
-              Submit request
-              <Send className="w-5 h-5" />
-            </Button>
-          </form>
+                className="w-full rounded-xl bg-sovereign-primary text-white shadow-sm transition hover:bg-sovereign-accent font-semibold flex items-center justify-center gap-2"
+              >
+                Submit request
+                <Send className="w-5 h-5" />
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
