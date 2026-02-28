@@ -47,7 +47,6 @@ export function ContactForm() {
             deployment pattern recommendations, and governance baseline options.
           </p>
         </div>
-
         <div className="mx-auto mt-10 grid max-w-6xl gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,2fr)]">
           <aside className="glass rounded-2xl p-6">
             <h3 className="text-sm font-semibold tracking-tight text-sovereign-primary dark:text-white">
@@ -77,15 +76,14 @@ export function ContactForm() {
               </div>
             </div>
           </aside>
-
-          <div className="glass rounded-2xl border border-slate-200/70 p-6 shadow-sm dark:border-white/15 sm:p-8">
+            <div className="glass rounded-2xl border border-slate-200/70 p-6 shadow-sm dark:border-white/15 sm:p-8">
             {submitted && (
               <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800 dark:border-emerald-400/25 dark:bg-emerald-500/10 dark:text-emerald-200">
                 Request received. We’ll follow up with sandbox access details.
               </div>
-            )}
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
+            )
+            }
+             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-sovereign-primary dark:text-white mb-2">
