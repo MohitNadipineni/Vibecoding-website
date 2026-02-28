@@ -1,65 +1,32 @@
 "use client"
-
 import { motion } from "framer-motion"
-import { Code2, Cog, Layout, LineChart, MessageSquare, Shield } from "lucide-react"
+import { Laptop, Activity, ShieldCheck, Users, Database, Cloud, Smartphone, Search } from "lucide-react"
 
-const services = [
-  {
-    title: "Custom Software Development",
-    description: "Building scalable, high-performance applications tailored to your specific business requirements.",
-    icon: Code2,
-  },
-  {
-    title: "AI & Machine Learning",
-    description: "Integrating intelligent automation and predictive analytics to drive data-informed decisions.",
-    icon: Cog,
-  },
-  {
-    title: "UI/UX Design",
-    description: "Crafting intuitive, user-centric interfaces that enhance engagement and simplify complex workflows.",
-    icon: Layout,
-  },
-  {
-    title: "Digital Strategy",
-    description: "Consulting on technology roadmaps and architecture to future-proof your digital ecosystem.",
-    icon: LineChart,
-  },
-  {
-    title: "Enterprise Solutions",
-    description: "Robust, secure, and compliant software for large-scale operations and public sector needs.",
-    icon: Shield,
-  },
-  {
-    title: "Cloud Engineering",
-    description: "Designing resilient cloud-native architectures for seamless scale and reliability.",
-    icon: MessageSquare,
-  },
+const arohaOfficialServices = [
+  { title: "Software Development", desc: "Aroha is having a software development division.", icon: Laptop },
+  { title: "Health Care", desc: "At Aroha, we are specialists at connecting you with both clinical and non-clinical experts who will surely become invaluable additions to your team.", icon: Activity },
+  { title: "Engineering", desc: "Aroha Technologies works with their clients to develop and execute a clear and strategic IT roadmap with priorities that are closely linked to business goals.", icon: ShieldCheck },
+  { title: "HR & Payroll", desc: "Aroha is proud to offer our partners HR and payroll services that are comprehensive, powerful, and easy-to-use. We do much more than just setting you up on software.", icon: Users },
+  { title: "ERP", desc: "Enterprise Resource Planning is a business management software which is designed for companies or organisations to manage, collect, store and interpret data from different business activities...", icon: Database },
+  { title: "Cloud Computing", desc: "AROHA can help you Navigate through the Cloud Hype In today's challenging business environment, it is imperative that IT leaders find solutions that can help with lowering capital expenses...", icon: Cloud },
+  { title: "Mobile Apps", desc: "Powerful Mobile App Solution for Meeting, Event & Conference Marketing We understand how important your event is and we work closely with you to improve your events marketing using our mobile app solutions...", icon: Smartphone },
+  { title: "Software Testing", desc: "Software Testing Services India - Risk Free Pilot Our approach to application testing enables IT to integrate On Demand testing to any stage of the life cycle and provide visibility into project quality...", icon: Search }
 ]
 
 export function Services() {
   return (
-    <section className="py-24 px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-semibold dark:text-white">Our Capabilities</h2>
-          <p className="mt-4 text-slate-600 dark:text-slate-400">Driving digital excellence through specialized technology services.</p>
-        </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, idx) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="glass p-8 rounded-3xl border border-slate-200 dark:border-white/10"
-            >
-              <service.icon className="h-10 w-10 text-blue-500 mb-6" />
-              <h3 className="text-xl font-semibold dark:text-white mb-3">{service.title}</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{service.description}</p>
-            </motion.div>
-          ))}
-        </div>
+    <section id="capabilities" className="py-24 px-6">
+      <div className="mx-auto max-w-6xl text-center mb-16">
+        <h2 className="text-3xl font-bold dark:text-white uppercase tracking-wider">Services</h2>
+      </div>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {arohaOfficialServices.map((s, i) => (
+          <div key={i} className="glass p-6 rounded-2xl border border-white/10 flex flex-col items-center text-center">
+            <s.icon className="h-12 w-12 text-blue-500 mb-6" />
+            <h3 className="text-lg font-semibold dark:text-white mb-4">{s.title}</h3>
+            <p className="text-xs text-slate-400 leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
   )
