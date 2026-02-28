@@ -18,25 +18,28 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    // Added 'dark' class here to force dark mode by default
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        {/* FOUC Prevention: Inline script runs before styles are loaded */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const mode = localStorage.getItem('bharat-os:sovereign-mode') === '1' ? 'dark' : 'light';
-                document.documentElement.classList.toggle('dark', mode === 'dark');
-                document.documentElement.setAttribute('data-mode', mode);
+                try {
+                  const mode = localStorage.getItem('bharat-os:sovereign-mode') || 'dark';
+                  document.documentElement.classList.toggle('dark', mode === 'dark');
+                  document.documentElement.setAttribute('data-mode', mode);
+                } catch (e) {}
               })();
             `,
           }}
         />
       </head>
-      <body className={inter.className}>
-        <div className="mesh min-h-screen bg-background text-foreground">
+      {/* Added bg-slate-950 to ensure the background is dark even before mesh loads */}
+      <body className={`${inter.className} bg-slate-950 text-white antialiased`}>
+        <div className="mesh min-h-screen bg-background text-foreground transition-colors duration-500">
           <Navbar />
-          <main>{children}</main>
+          <main className="relative z-10">{children}</main>
           <Footer />
         </div>
       </body>
